@@ -1,0 +1,221 @@
+header {
+    background-color: #000; /* Cor de fundo preta para o cabeçalho */
+    width: 100%;
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img {
+    width: 140px; /* Diminuição da logo */
+}
+
+.logo-grande {
+    width: 200px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    margin-left: -20px; /* Move o menu de navegação um pouco mais para a esquerda */
+}
+
+nav ul li {
+    margin: 0 15px;
+    transition: transform 0.3s ease; /* Animação suave para transformação */
+    position: relative; /* Permite a adição da linha abaixo no hover */
+}
+
+.nav-item:hover::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -5px;
+    height: 2px;
+    background-color: wheat;
+    transition: 2s; /* Transição suave para a expansão */
+    width: 100%; /* Garante que a linha se expanda completamente */
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.agendar-btn {
+    padding: 12px 24px;
+    border: 2px solid wheat;
+    border-radius: 0;
+    color: #fff;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.agendar-btn:hover {
+    background-color: wheat;
+    color: #000;
+}
+
+.agendar-btn::after {
+    display: none;
+}
+
+.sobre {
+    background-image: url('imgs/textura-tijolos.webp');
+    /* background-color: #000; */
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    padding-bottom: 80px; /* Ajuste do padding-bottom */
+}
+ 
+.sobre-video {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+
+.sobre-video iframe {
+    border-radius: 10px;
+    margin-bottom: 60px;
+    width: 90%;
+    height: 450px;
+}
+
+
+
+.sobre h1 {
+    font-size: 48px;
+    color: #fff;
+}
+
+.sobre h2 {
+    font-size: 28px;
+    color: #fff;
+}
+
+.botoes {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+
+    .botoes {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .sobre img {
+        width: 150px;
+    }
+
+    .sobre h1 {
+        font-size: 32px;
+        margin: 30px 0;
+    }
+
+    .sobre h2 {
+        font-size: 24px;
+    }
+
+    .sobre-video iframe {
+        width: 90%;
+        height: 400px;
+    }
+    
+
+    nav ul {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw; /* Ajusta para ocupar toda a largura da tela */
+        height: 100vh; /* Ajusta para ocupar toda a altura da tela */
+        background-color: #000;
+        transition: transform 0.3s;
+        transform: translateX(-100%);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding-top: 0;
+        margin: 0; /* Remova margens */
+        z-index: 3;
+    }
+
+    /* Quando o menu está ativo */
+    nav ul.ativo {
+        transform: translateX(0);
+    }
+
+    nav ul li {
+        margin: 20px 0;
+    }
+
+    .header-container {
+        height: 16vh;
+        justify-content: space-between;
+        position: relative; /* Adicione position: relative; para os filhos posicionarem-se relativamente a este elemento */
+    }
+
+    .header-container img {
+        width: 100px;
+    }
+
+    .logo {
+        position: absolute;
+        left: 20px;
+        top: 50%;
+        transform: translateY(-50%); /* Alinha verticalmente com o meio do cabeçalho */
+    }
+
+    .menu-hamburguer {
+        display: none;
+        cursor: pointer;
+        position: absolute;
+        right: 20px;
+        top: 20px;
+    }
+    
+    .menu-hamburguer .barra {
+        width: 25px;
+        height: 3px;
+        background-color: #fff;
+        margin: 5px 0;
+        transition: 0.4s;
+    }
+
+    .menu-hamburguer.ativo .barra:nth-child(1) {
+        transform: rotate(-45deg) translate(-5px, 6px);
+    }
+    
+    .menu-hamburguer.ativo .barra:nth-child(2) {
+        opacity: 0;
+    }
+    
+    .menu-hamburguer.ativo .barra:nth-child(3) {
+        transform: rotate(45deg) translate(-5px, -6px);
+    }
+
+    .menu-hamburguer {
+        display: block;
+        position: absolute;
+        right: 20px;
+        top: 50%;
+        transform: translateY(-50%); /* Alinha verticalmente com o meio do cabeçalho */
+        z-index: 999; /* Garante que o ícone do menu fique sobre a logo */
+    }
+
+}
